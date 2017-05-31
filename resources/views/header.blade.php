@@ -14,10 +14,10 @@
         <el-menu-item index="3-2">Добавить на карте</el-menu-item>
         <el-menu-item index="3-3">Показать все</el-menu-item>
       </el-submenu>--}}
-      <el-menu-item index="4">Карта перемещений</el-menu-item>
+      {{--<el-menu-item index="4">Карта перемещений</el-menu-item>--}}
       <div class="menu-right__header">
         <el-submenu index="5">
-          <template slot="title">{{ Auth::user()->name }}</template>
+          <template slot="title">{{ Auth::user()->name ?? null }}</template>
           <el-menu-item index="5-1">
             <a href="{{ route('logout') }}" onclick="
             event.preventDefault();

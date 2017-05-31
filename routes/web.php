@@ -1,18 +1,19 @@
 <?php
 
 /** @var \Illuminate\Routing\Router $router */
-
 $router->get('/', function () {
-    return view('index');
+    return redirect('beacons');
 });
 
-$router->get('/beacons', function () {
-    return view('beacons');
-})->name('beacons');
+$router->group(['middleware' => 'guest'], function () use ($router) {
+    $router->get('/beacons', function () {
+        return view('beacons');
+    })->name('beacons');
 
-$router->get('/locations', function () {
-    return view('locations');
-})->name('locations');
+    $router->get('/locations', function () {
+        return view('locations');
+    })->name('locations');
+});
 
 Auth::routes();
 
